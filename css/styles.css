@@ -1540,3 +1540,584 @@ a.contact-value:hover {
     height: 28px;
   }
 }
+
+/* ========================================
+   MEGA ANIMATION UPGRADE
+   Classic Dental Care – Cinematic Feel
+======================================== */
+
+/* ---- Scroll Progress Bar ---- */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--blue-dark), var(--blue-light), #f5c842);
+  z-index: 9999;
+  transition: width 0.1s linear;
+  border-radius: 0 2px 2px 0;
+}
+
+/* ---- Hero Image Ken Burns Zoom ---- */
+@keyframes kenBurns {
+  0% {
+    transform: scale(1) translateX(0) translateY(0);
+  }
+
+  33% {
+    transform: scale(1.08) translateX(-1%) translateY(-1%);
+  }
+
+  66% {
+    transform: scale(1.05) translateX(1%) translateY(-0.5%);
+  }
+
+  100% {
+    transform: scale(1) translateX(0) translateY(0);
+  }
+}
+
+.hero-img {
+  animation: kenBurns 18s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* ---- Hero overlay animated gradient shimmer ---- */
+@keyframes heroOverlayShimmer {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.88;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.hero-overlay {
+  animation: heroOverlayShimmer 6s ease-in-out infinite;
+}
+
+/* ---- Floating Particles in Hero ---- */
+.hero-particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(168, 216, 234, 0.55);
+  pointer-events: none;
+  animation: floatParticle var(--dur, 8s) ease-in-out var(--delay, 0s) infinite;
+  z-index: 1;
+}
+
+@keyframes floatParticle {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.8;
+  }
+
+  85% {
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateY(-120px) scale(0.4);
+    opacity: 0;
+  }
+}
+
+/* ---- Hero Content Entrance ---- */
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-badge {
+  animation: heroFadeIn 0.7s ease 0.1s both;
+}
+
+.hero-title {
+  animation: heroFadeIn 0.8s ease 0.3s both;
+}
+
+.hero-subtitle {
+  animation: heroFadeIn 0.8s ease 0.5s both;
+}
+
+.hero-actions {
+  animation: heroFadeIn 0.8s ease 0.7s both;
+}
+
+.hero-stats {
+  animation: heroFadeIn 0.8s ease 0.9s both;
+}
+
+/* ---- Typing cursor on hero accent ---- */
+.hero-title .accent::after {
+  content: '|';
+  animation: blink 1s step-start infinite;
+  color: var(--blue-light);
+  margin-left: 2px;
+  font-weight: 300;
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ---- Trust Strip shimmer sweep ---- */
+@keyframes shimmerSweep {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.trust-strip {
+  position: relative;
+  overflow: hidden;
+}
+
+.trust-strip::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+      transparent 0%, rgba(168, 216, 234, 0.06) 40%,
+      rgba(168, 216, 234, 0.12) 50%, rgba(168, 216, 234, 0.06) 60%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmerSweep 4s linear infinite;
+  pointer-events: none;
+}
+
+/* ---- Counter number pop ---- */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.85);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.trust-value.counted {
+  animation: countUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* ---- Enhanced Fade Directions ---- */
+.fade-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-scale {
+  opacity: 0;
+  transform: scale(0.88);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-left.visible,
+.fade-right.visible,
+.fade-scale.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Stagger delays for cards inside a grid */
+.service-card:nth-child(1) {
+  transition-delay: 0s;
+}
+
+.service-card:nth-child(2) {
+  transition-delay: 0.08s;
+}
+
+.service-card:nth-child(3) {
+  transition-delay: 0.16s;
+}
+
+.service-card:nth-child(4) {
+  transition-delay: 0.24s;
+}
+
+.service-card:nth-child(5) {
+  transition-delay: 0.32s;
+}
+
+.review-card:nth-child(1) {
+  transition-delay: 0s;
+}
+
+.review-card:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.review-card:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+.review-card:nth-child(4) {
+  transition-delay: 0.3s;
+}
+
+/* ---- Service icon bounce on card hover ---- */
+.service-card:hover .service-icon {
+  animation: iconBounce 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes iconBounce {
+  0% {
+    transform: scale(1);
+  }
+
+  40% {
+    transform: scale(1.35) rotate(-8deg);
+  }
+
+  70% {
+    transform: scale(0.92) rotate(5deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* ---- Service category hover left-border grow ---- */
+.service-category {
+  border-left: 3px solid transparent !important;
+  transition: border-left-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.service-category:hover {
+  border-left-color: var(--blue) !important;
+}
+
+/* ---- About section image card tilt on hover ---- */
+.about-img-card {
+  transition: transform 0.4s cubic-bezier(0.34, 1.2, 0.64, 1), box-shadow 0.4s ease;
+}
+
+.about-img-card:hover {
+  transform: rotate(-1.5deg) scale(1.025);
+  box-shadow: -8px 24px 60px rgba(91, 179, 208, 0.22);
+}
+
+/* ---- Rating card float ---- */
+@keyframes floatCard {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.rating-card {
+  animation: floatCard 4s ease-in-out infinite;
+}
+
+/* ---- Gallery image zoom + overlay color tint ---- */
+.gallery-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(91, 179, 208, 0) 60%, rgba(91, 179, 208, 0.18) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.gallery-item:hover::after {
+  opacity: 1;
+}
+
+/* ---- Review card glow ---- */
+.review-card:hover {
+  box-shadow: 0 0 0 1px rgba(91, 179, 208, 0.2), 0 12px 40px rgba(91, 179, 208, 0.12) !important;
+}
+
+/* ---- Contact item icon pulse ---- */
+@keyframes contactPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.contact-item:hover .contact-icon {
+  animation: contactPulse 0.6s ease;
+}
+
+/* ---- Floating Tooth Decoration ---- */
+.tooth-float {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.06;
+  pointer-events: none;
+  animation: toothDrift var(--dur, 12s) ease-in-out infinite;
+  user-select: none;
+}
+
+@keyframes toothDrift {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  33% {
+    transform: translateY(-20px) rotate(8deg);
+  }
+
+  66% {
+    transform: translateY(10px) rotate(-6deg);
+  }
+}
+
+/* ---- Animated CTA button shine sweep ---- */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+  transform: skewX(-20deg);
+  transition: none;
+  pointer-events: none;
+}
+
+.btn-primary:hover::after {
+  left: 125%;
+  transition: left 0.55s ease;
+}
+
+/* ---- Sticky call bar entrance animation ---- */
+@keyframes stickySlideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+#stickyCall[style*="block"] {
+  animation: stickySlideUp 0.35s ease;
+}
+
+/* ---- Navbar link underline slide ---- */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 14px;
+  right: 14px;
+  height: 2px;
+  background: var(--blue);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+  border-radius: 2px;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
+}
+
+/* ---- Section header slide-in line ---- */
+.section-tag::before {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 2px;
+  background: var(--blue);
+  vertical-align: middle;
+  margin-right: 0;
+  transition: width 0.5s ease, margin-right 0.5s ease;
+}
+
+.section-header.visible .section-tag::before,
+.about-text .section-tag::before {
+  width: 24px;
+  margin-right: 8px;
+}
+
+/* ---- WhatsApp / floating CTA bubble ---- */
+.float-wa {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  z-index: 998;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #25d366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+  text-decoration: none;
+  animation: waPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 1.5s both,
+    waBounce 3s ease-in-out 2s infinite;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.float-wa:hover {
+  transform: scale(1.12);
+  box-shadow: 0 8px 32px rgba(37, 211, 102, 0.6);
+}
+
+@keyframes waPop {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes waBounce {
+
+  0%,
+  100% {
+    transform: scale(1) translateY(0);
+  }
+
+  50% {
+    transform: scale(1) translateY(-6px);
+  }
+}
+
+@media (max-width: 768px) {
+  .float-wa {
+    bottom: 90px;
+  }
+}
+
+/* ---- Preloader ---- */
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #0a0a0a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#preloader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-tooth {
+  font-size: 3rem;
+  animation: preloaderSpin 1s ease-in-out infinite alternate;
+}
+
+@keyframes preloaderSpin {
+  from {
+    transform: rotate(-15deg) scale(0.9);
+  }
+
+  to {
+    transform: rotate(15deg) scale(1.1);
+  }
+}
+
+.preloader-bar {
+  width: 160px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.preloader-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--blue-dark), var(--blue-light));
+  border-radius: 3px;
+  animation: preloaderLoad 1.2s ease forwards;
+}
+
+@keyframes preloaderLoad {
+  to {
+    width: 100%;
+  }
+}
+
+.preloader-text {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.1em;
+  font-family: var(--font-body);
+}
